@@ -8,9 +8,9 @@ const SixthPage = () => {
   return (
     <>
       <div className="border-[0.1px] border-black/20 "></div>
-      <div className="pt-12 pb-8 px-4 text-left md:px-16 md:24 gap-y-4 md:text-center lg:pt-24 lg:pb-16 flex flex-col items-start justify-start md:items-center md:justify-center max-md:items-center">
+      <div className="pt-12 pb-8 px-4 text-left md:px-16 md:24 gap-y-4 md:text-center lg:pt-24 lg:pb-16 flex flex-col items-start justify-start md:items-center md:justify-center max-md:items-center max-sm:items-center">
         <img src={Logo} alt="mode UI" className="w-fit" />
-        <p className="md:max-w-4/5 lg:max-w-2/3 text-left pl-2 text-pretty md:text-center max-md:text-center">
+        <p className="md:max-w-4/5 lg:max-w-2/3 text-left pl-2 text-pretty md:text-center max-md:text-center xl:max-w-1/3 max-sm:text-center sm:max-w-2/3 max-xl:max-w-2/3">
           Mode UI is a comprehensive design system that empowers designers and
           developers to create cohesive and visually stunning user interfaces
           across various platforms and devices
