@@ -15,10 +15,12 @@ const SecondPage = () => {
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua.
         </p>
-        <div className="flex pt-8 md:text-base gap-x-2 font-semibold">
-          <p className="text-[#582066]">Compare all Pro features</p>
-          <img src={ArrowRightPurple} alt="arrow right purple" />
-        </div>
+        <button className="hover:cursor-pointer">
+          <div className="flex pt-8 md:text-base gap-x-2 font-semibold">
+            <p className="text-[#582066]">Compare all Pro features</p>
+            <img src={ArrowRightPurple} alt="arrow right purple" />
+          </div>
+        </button>
 
         <div className="lg:flex lg:gap-x-8 mb-24 md:mb-24 px-4 mt-12 lg:mt-24">
           <div className="pt-12 flex flex-col items-center">

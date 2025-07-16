@@ -13,10 +13,12 @@ const ThirdPage = () => {
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua.
         </p>
-        <div className="flex pt-8 md:text-base gap-x-2 font-semibold">
-          <p className="text-[#582066]">Compare all Pro features</p>
-          <img src={ArrowRightPurple} alt="arrow right purple" />
-        </div>
+        <button className="hover:cursor-pointer">
+          <div className="flex pt-8 md:text-base gap-x-2 font-semibold">
+            <p className="text-[#582066]">Compare all Pro features</p>
+            <img src={ArrowRightPurple} alt="arrow right purple" />
+          </div>
+        </button>
         <div className="gap-y-8 flex flex-col mt-12  lg:flex-row items-center justify-center lg:gap-x-2 mb-20 md:mb-24 lg:px-24 lg:mb-24">
           <img src={picture1} alt="picture 1 flex-grow-0" />
           <img src={picture2} alt="picture 2 flex-grow-0" />

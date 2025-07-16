@@ -10,14 +10,18 @@ const FifthPage = () => {
           Unlock Limitless Possibilities with Our New Card Solutions
         </h1>
         <div className="flex flex-col items-center pt-8 gap-y-2 md:flex-row md:gap-x-2 font-medium">
-          <div className="bg-[#582066] text-white flex px-16 rounded-lg py-3 gap-x-2 md:px-4 md:py-3">
-            <p>Unlock your card</p>
-            <img src={mail} alt="mail" />
-          </div>
-          <div className="flex bg-[#EEEFEF] text-[#5A6475] fill-[#5A6475] px-16 py-3 rounded-lg gap-x-2 md:px-4 md:py-3">
-            <p>Customer support</p>
-            <img src={headphones} alt="headphones" />
-          </div>
+          <button className="hover:cursor-pointer">
+            <div className="bg-[#582066] text-white flex px-16 rounded-lg py-3 gap-x-2 md:px-4 md:py-3">
+              <p>Unlock your card</p>
+              <img src={mail} alt="mail" />
+            </div>
+          </button>
+          <button className="hover:cursor-pointer">
+            <div className="flex bg-[#EEEFEF] text-[#5A6475] fill-[#5A6475] px-16 py-3 rounded-lg gap-x-2 md:px-4 md:py-3">
+              <p>Customer support</p>
+              <img src={headphones} alt="headphones" />
+            </div>
+          </button>
         </div>
       </div>
     </>

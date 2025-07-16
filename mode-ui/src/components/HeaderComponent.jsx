@@ -18,10 +18,12 @@ const HeaderComponent = () => {
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
         </p>
-        <div className="flex mt-8 gap-x-2 bg-[#582066] p-4 rounded-lg text-white">
-          <p>Unlock your card</p>
-          <img src={ArrowRight} alt="arrow right" className="fill-white" />
-        </div>
+        <button className="hover:cursor-pointer">
+          <div className="flex mt-8 gap-x-2 bg-[#582066] p-4 rounded-lg text-white">
+            <p>Unlock your card</p>
+            <img src={ArrowRight} alt="arrow right" className="fill-white" />
+          </div>
+        </button>
         <p className="pt-4 text-[#5A6475]">*No credit card required</p>
       </div>
       <div className="px-4 mt-20 flex justify-center content-center text-center mb-16 md:mb-24">

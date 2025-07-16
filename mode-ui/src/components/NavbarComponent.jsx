@@ -27,10 +27,12 @@ const NavbarComponent = () => {
 
           <div className="flex gap-x-4">
             <div className="flex min-lg:pr-10 hover:cursor-pointer">
-              <div className="flex items-center w-fit font-semibold gap bg-[#EEEFEF] rounded-lg  text-[#5A6475] px-4 py-2 gap-x-2 text-sm">
-                <p>Login</p>
-                <img src={Login} alt="" className="" />
-              </div>
+              <button className="hover:cursor-pointer">
+                <div className="flex items-center w-fit font-semibold gap bg-[#EEEFEF] rounded-lg  text-[#5A6475] px-4 py-2 gap-x-2 text-sm">
+                  <p>Login</p>
+                  <img src={Login} alt="" className="" />
+                </div>
+              </button>
             </div>
             <div className="flex items-center justify-center min-lg:hidden hover:cursor-pointer">
               <img src={Hamburger} alt="hamburger icon" />
