@@ -3,10 +3,35 @@ import Logo from "../assets/Logo.svg";
 import Login from "../assets/login.svg";
 import Hamburger from "../assets/hamburger.svg";
 import Dropdown from "../assets/dropdown.svg";
+import HamburgerComponent from "../components/HamburgerComponent.jsx";
+import { useState } from "react";
+
 const NavbarComponent = () => {
+  const [toggled, setToggled] = useState(false);
+
+  function ToggleMenu() {
+    setToggled(!toggled);
+    console.log("Navbar toggled state: ", !toggled);
+  }
+
   return (
     <>
+      <HamburgerComponent
+        isOpen={toggled}
+        onClose={ToggleMenu}
+      ></HamburgerComponent>
       {/* navbar components */}
+      {/* announcement section */}
+      <div className=" flex gap-x-4 justify-between items-center px-2 py-2 sm:justify-center min-md:justify-center">
+        <div className="bg-[#F1F1F2] rounded-full px-3 py-1 flex items-center justify-center text-sm font-semibold text-[#363C46] ">
+          <p>Announcement</p>
+        </div>
+        <div className="flex text-xs pr-2 font-semibold text-pretty">
+          <p>
+            We are happy to announce that we raise $2 Million in Seed Funding
+          </p>
+        </div>
+      </div>
       <div className="w-screen">
         <div className="flex justify-between  border-[#E6E7E9] border-1 bg-transparent w-full px-4 text-xs py-5 items-center">
           <div>
@@ -21,7 +46,7 @@ const NavbarComponent = () => {
             <button className="hover:cursor-pointer">Banking</button>
             <button className="hover:cursor-pointer">Processing</button>
             <button className="hover:cursor-pointer">About</button>
-            <button className="hover:cursor-pointer">Carrier</button>
+            <button className="hover:cursor-pointer">Career</button>
             <button className="hover:cursor-pointer">Contact</button>
           </div>
 
@@ -34,7 +59,12 @@ const NavbarComponent = () => {
                 </div>
               </button>
             </div>
-            <div className="flex items-center justify-center min-lg:hidden hover:cursor-pointer">
+            <div
+              className="flex items-center justify-center lg:hidden hover:cursor-pointer"
+              onClick={() => {
+                ToggleMenu();
+              }}
+            >
               <img src={Hamburger} alt="hamburger icon" />
             </div>
           </div>
