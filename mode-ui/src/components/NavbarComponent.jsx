@@ -5,6 +5,7 @@ import Hamburger from "../assets/hamburger.svg";
 import Dropdown from "../assets/dropdown.svg";
 import HamburgerComponent from "../components/HamburgerComponent.jsx";
 import { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 const NavbarComponent = () => {
   const [toggled, setToggled] = useState(false);
@@ -52,12 +53,14 @@ const NavbarComponent = () => {
 
           <div className="flex gap-x-4">
             <div className="flex min-lg:pr-10 hover:cursor-pointer">
-              <button className="hover:cursor-pointer">
-                <div className="flex items-center w-fit font-semibold gap bg-[#EEEFEF] rounded-lg  text-[#5A6475] px-4 py-2 gap-x-2 text-sm">
-                  <p>Login</p>
-                  <img src={Login} alt="" className="" />
-                </div>
-              </button>
+              <Link to="/Login">
+                <button className="hover:cursor-pointer">
+                  <div className="flex items-center w-fit font-semibold gap bg-[#EEEFEF] rounded-lg  text-[#5A6475] px-4 py-2 gap-x-2 text-sm">
+                    <p>Login</p>
+                    <img src={Login} alt="" className="" />
+                  </div>
+                </button>
+              </Link>
             </div>
             <div
               className="flex items-center justify-center lg:hidden hover:cursor-pointer"
