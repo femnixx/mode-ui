@@ -1,17 +1,21 @@
 import React from "react";
+import Lockwhite from "../assets/lock-white.svg";
+import Mailwhite from "../assets/mail-white.svg";
+import background from "../assets/backgrouind.svg";
+import { backgroundImage } from "flowbite-react/plugin/tailwindcss/theme";
 
 const Login = () => {
   return (
     <>
-      <div className="flex flex-col h-screen">
-        <p className="flex justify-center items-center mt-13 text-center text-4xl font-serif mx-14">
+      <div className="flex flex-col h-screen mt-13 md:text-lg lg:hidden">
+        <p className="flex justify-center items-center text-center text-3xl font-serif mx-14 md:text-5xl">
           Welcome back!
         </p>
         <div className="flex  justify-between w-full">
-          <div className="py-3 px-16  w-1/2 mt-12">
-            <p>Sign in</p>
+          <div className="py-3 w-1/2 flex justify-center items-center mt-12 text-[#71717D] font-semibold border-b-1 border-[#71717D]">
+            <p className="">Sign in</p>
           </div>
-          <div className="py-3 px-16 w-1/2 mt-12">
+          <div className="py-3 w-1/2 flex justify-center items-center mt-12 text-[#71717D] font-semibold">
             <p>Sign up</p>
           </div>
         </div>
@@ -23,7 +27,7 @@ const Login = () => {
                 <p className="font-semibold text-red-500">*</p>
               </div>
               <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
-                <p>.</p>
+                <img src={Mailwhite} alt="mailwhite" />
                 <p>hugeicons@gmail.com</p>
               </div>
             </div>
@@ -33,23 +37,98 @@ const Login = () => {
                 <p className="font-semibold text-red-500">*</p>
               </div>
               <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
-                <p>.</p>
+                <img src={Lockwhite} alt="" />
                 <p>*****</p>
               </div>
             </div>
           </div>
           <div className="flex justify-between pt-4 items-center text-[#75757E]">
             <div className="flex gap-x-1">
-              <button className="border-1 border-[#75757E] px-1 my-0.5 rounded-xs"></button>
-              <p className="text-sm">Remember me</p>
+              <button className="border-[0.5px] border-[#75757E] px-1 my-1 rounded-xs sm:my-[6px]"></button>
+              <p className="text-sm sm:text-base">Remember me</p>
             </div>
-            <p className="text-sm">Forgot password</p>
+            <p className="text-sm hover:underline hover:cursor-pointer sm:text-base">
+              Forgot password
+            </p>
           </div>
-          <p className="mt-8 text-center border-1">Login</p>
+          <div className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg">
+            <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+              Login
+            </p>
+          </div>
         </div>
         <p className="text-center mt-auto mb-6">
-          By logging in, you agree to our Terms of Conditions and Privacy Policy
+          By logging in, you agree to our{" "}
+          <strong className="font-semibold text-[#5939DC]">
+            Terms of Conditions
+          </strong>{" "}
+          and{" "}
+          <strong className="font-semibold text-[#5939DC]">
+            Privacy Policy
+          </strong>
         </p>
+      </div>
+      {/* lg screens */}
+      <div className="w-screen h-screen max-lg:hidden relative bg-[#F9F9FB]">
+        <div
+          className="absolute inset-0 bg-fill bg-center z-20"
+          style={{ backgroundImage: `url("${background}")` }}
+        ></div>
+        <div className="absolute inset-0 z-20 flex justify-center">
+          <div className="flex text-start flex-col m-20 bg-white rounded-lg shadow-2xl  border-[#75757E] relative">
+            <div className="px-20 py-20">
+              <p className="flex justify-center items-center text-center font-serif mx-14 text-4xl">
+                Welcome back!
+              </p>
+              <div className="pt-12">
+                <div className="mx-4">
+                  <div className="mt-12 gap-y-5 flex flex-col">
+                    <div className="gap-y-2">
+                      <div className="flex gap-x-1">
+                        <p className="font-semibold">Email</p>
+                        <p className="font-semibold text-red-500">*</p>
+                      </div>
+                      <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
+                        <img src={Mailwhite} alt="mailwhite" />
+                        <p>hugeicons@gmail.com</p>
+                      </div>
+                    </div>
+                    <div className="gap-y-2">
+                      <div className="flex gap-x-1">
+                        <p className="font-semibold">Password</p>
+                        <p className="font-semibold text-red-500">*</p>
+                      </div>
+                      <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
+                        <img src={Lockwhite} alt="" />
+                        <p>*****</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between pt-4 items-center text-[#75757E]">
+                    <div className="flex gap-x-1">
+                      <button className="border-[0.5px] border-[#75757E] px-1 my-1 rounded-xs sm:my-[6px]"></button>
+                      <p className="text-sm sm:text-base">Remember me</p>
+                    </div>
+                    <p className="text-sm hover:underline hover:cursor-pointer sm:text-base">
+                      Forgot password
+                    </p>
+                  </div>
+                  <div className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg">
+                    <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+                      Login
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-center pt-6">
+                Don't have an account?{" "}
+                <strong className="font-semibold text-[#5939DC] hover:cursor-pointer hover:underline">
+                  Sign up
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
