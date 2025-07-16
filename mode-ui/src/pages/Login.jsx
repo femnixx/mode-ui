@@ -32,7 +32,7 @@ const Login = () => {
                 <p className="font-semibold">Password</p>
                 <p className="font-semibold text-red-500">*</p>
               </div>
-              <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg">
+              <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
                 <p>.</p>
                 <p>*****</p>
               </div>
@@ -40,7 +40,7 @@ const Login = () => {
           </div>
           <div className="flex justify-between pt-4 items-center text-[#75757E]">
             <div className="flex gap-x-1">
-              <button className="border-1 border-[#75757E] px-1 my-1 rounded-xs"></button>
+              <button className="border-1 border-[#75757E] px-1 my-0.5 rounded-xs"></button>
               <p className="text-sm">Remember me</p>
             </div>
             <p className="text-sm">Forgot password</p>
