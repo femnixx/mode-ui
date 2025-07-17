@@ -34,8 +34,68 @@ const Login = () => {
             <p>Sign up</p>
           </div>
         </div>
-        <div className="mx-4">
+
+        {/* Sign in */}
+        <div className={`mx-4 ${active === "signIn" ? "block" : "hidden"}`}>
           <div className="mt-12 gap-y-5 flex flex-col">
+            <div className="gap-y-2">
+              <div className="flex gap-x-1">
+                <p className="font-semibold">Email</p>
+                <p className="font-semibold text-red-500">*</p>
+              </div>
+              <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
+                <img src={Mailwhite} alt="mailwhite" />
+                <p>hugeicons@gmail.com</p>
+              </div>
+            </div>
+            <div className="gap-y-2">
+              <div className="flex gap-x-1">
+                <p className="font-semibold">Password</p>
+                <p className="font-semibold text-red-500">*</p>
+              </div>
+              <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
+                <img src={Lockwhite} alt="" />
+                <p>*****</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-between pt-4 items-center text-[#75757E]">
+            <div className="flex gap-x-1">
+              <button className="border-[0.5px] border-[#75757E] px-1 my-1 rounded-xs sm:my-[6px]"></button>
+              <p className="text-sm sm:text-base">Remember me</p>
+            </div>
+            <p className="text-sm hover:underline hover:cursor-pointer sm:text-base">
+              Forgot password
+            </p>
+          </div>
+          <div className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg">
+            <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+              Login
+            </p>
+          </div>
+        </div>
+
+        {/* Sign up */}
+        <div className={`mx-4 ${active === "signUp" ? "block" : "hidden"}`}>
+          <div className="mt-12 gap-y-5 flex flex-col">
+            <div className="gap-y-2">
+              <div className="flex gap-x-1">
+                <p className="font-semibold">First Name</p>
+                <p className="font-semibold text-red-500">*</p>
+              </div>
+              <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
+                <p>Darell</p>
+              </div>
+            </div>
+            <div className="gap-y-2">
+              <div className="flex gap-x-1">
+                <p className="font-semibold">Last Name</p>
+                <p className="font-semibold text-red-500">*</p>
+              </div>
+              <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
+                <p>Stewards</p>
+              </div>
+            </div>
             <div className="gap-y-2">
               <div className="flex gap-x-1">
                 <p className="font-semibold">Email</p>
