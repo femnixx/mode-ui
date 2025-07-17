@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Lockwhite from "../assets/lock-white.svg";
 import Mailwhite from "../assets/mail-white.svg";
 import background from "../assets/backgrouind.svg";
 import { backgroundImage } from "flowbite-react/plugin/tailwindcss/theme";
 
 const Login = () => {
+  const [active, setActive] = useState("signIn");
   return (
     <>
-      <div className="flex flex-col h-screen mt-13 md:text-lg lg:hidden">
+      <div className="flex flex-col h-screen mt-13 sm:text-lg lg:hidden max-lg:hidden max-sm:flex">
         <p className="flex justify-center items-center text-center text-3xl font-serif mx-14 md:text-5xl">
           Welcome back!
         </p>
         <div className="flex  justify-between w-full">
-          <div className="py-3 w-1/2 flex justify-center items-center mt-12 text-[#71717D] font-semibold border-b-1 border-[#71717D]">
+          <div
+            className={`py-3 w-1/2 flex justify-center items-center mt-12 ${
+              active === "signIn"
+                ? "text-[#5939DC] border-b-2 border-[#5939DC]"
+                : "text-[#75757E] border-b-2 border-[#75757E]"
+            } font-semibold`}
+            onClick={() => setActive("signIn")}
+          >
             <p className="">Sign in</p>
           </div>
-          <div className="py-3 w-1/2 flex justify-center items-center mt-12 text-[#71717D] font-semibold">
+          <div
+            className={`py-3 w-1/2 flex justify-center items-center mt-12 ${
+              active === "signUp"
+                ? "text-[#5939DC] border-b-2 border-[#5939DC]"
+                : "text-[#75757E] border-b-2 border-[#75757E]"
+            } font-semibold`}
+            onClick={() => setActive("signUp")}
+          >
             <p>Sign up</p>
           </div>
         </div>
@@ -69,7 +84,7 @@ const Login = () => {
         </p>
       </div>
       {/* lg screens */}
-      <div className="w-screen h-screen max-lg:hidden relative bg-[#F9F9FB]">
+      <div className="w-screen h-screen max-sm:hidden relative bg-[#F9F9FB]">
         <div
           className="absolute inset-0 bg-fill bg-center z-20"
           style={{ backgroundImage: `url("${background}")` }}
