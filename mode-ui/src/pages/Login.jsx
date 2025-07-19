@@ -3,10 +3,13 @@ import Lockwhite from "../assets/lock-white.svg";
 import Mailwhite from "../assets/mail-white.svg";
 import background from "../assets/backgrouind.svg";
 import { backgroundImage } from "flowbite-react/plugin/tailwindcss/theme";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [active, setActive] = useState("signIn");
   const [remember, setRemember] = useState(false);
+
   return (
     <>
       <div className="flex flex-col h-screen mt-13 sm:text-lg lg:hidden max-lg:hidden max-sm:flex">
