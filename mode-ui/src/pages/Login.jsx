@@ -222,9 +222,11 @@ const Login = () => {
                     </p>
                   </div>
                   <div className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg">
-                    <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
-                      Login
-                    </p>
+                    <button className="hover:cursor-pointer">
+                      <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+                        Login
+                      </p>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -314,9 +316,11 @@ const Login = () => {
                     </p>
                   </div>
                   <div className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg">
-                    <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
-                      Login
-                    </p>
+                    <button className="hover:cursor-pointer">
+                      <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+                        Login
+                      </p>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -10,7 +10,9 @@ const HeaderComponent = () => {
   return (
     <>
       <div className="pt-10 flex flex-col items-center text-center px-4">
-        <p>Seamless Experience</p>
+        <p className="font-semibold text-[#582066] md:text-lg sm:text-base">
+          Seamless Experience
+        </p>
         <h1 className="pt-4 text-2xl md:text-6xl lg:max-w-2/5 max-lg:max-w-2/3 sm:text-4xl max-md:text-3xl font-semibold">
           Unleashing the Next Generation of Card Solutions{" "}
         </h1>
