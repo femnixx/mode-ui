@@ -3,7 +3,6 @@ import Lockwhite from "../assets/lock-white.svg";
 import Mailwhite from "../assets/mail-white.svg";
 import background from "../assets/backgrouind.svg";
 import { backgroundImage } from "flowbite-react/plugin/tailwindcss/theme";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
