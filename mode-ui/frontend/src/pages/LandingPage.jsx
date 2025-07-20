@@ -6,7 +6,6 @@ import ThirdPage from "./ThirdPage";
 import FourthPage from "./FourthPage";
 import FifthPage from "./FifthPage";
 import SixthPage from "./SixthPage";
-import HamburgerComponent from "../components/HamburgerComponent";
 
 const LandingPage = () => {
   return (

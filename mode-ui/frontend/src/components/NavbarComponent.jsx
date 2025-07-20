@@ -3,7 +3,7 @@ import Logo from "../assets/Logo.svg";
 import Login from "../assets/login.svg";
 import Hamburger from "../assets/hamburger.svg";
 import Dropdown from "../assets/dropdown.svg";
-import HamburgerComponent from "../components/HamburgerComponent.jsx";
+import HamburgerComponent from "./HamburgerComponent.jsx";
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
