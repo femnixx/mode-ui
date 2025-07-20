@@ -2,12 +2,80 @@ import React, { useState } from "react";
 import Lockwhite from "../assets/lock-white.svg";
 import Mailwhite from "../assets/mail-white.svg";
 import background from "../assets/backgrouind.svg";
-import { backgroundImage } from "flowbite-react/plugin/tailwindcss/theme";
 import { Link, useNavigate } from "react-router-dom";
+import authService from "../services/authServices";
 
 const Login = () => {
   const [active, setActive] = useState("signIn");
   const [remember, setRemember] = useState(false);
+
+  // state for login form fields
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  // state for sign up form fields
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+
+  // state for displaying messages (success or error)
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  // handler for login form submission
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    try {
+      const response = await authService.Login(loginEmail, loginPassword);
+      setMessage(response.message || "Login successful!");
+      alert("Login scucessful: " + (response.message || "Welcome!"));
+      console.log("Login successful: ", response);
+
+      setLoginEmail("");
+      setLoginPassword("");
+      navigate("");
+    } catch (error) {
+      setMessage(error);
+      console.error("Login error: ", error);
+    }
+  };
+
+  // handler for signup submission
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    if (!firstName || !lastName || !signupEmail || !signupPassword) {
+      setMessage("All fields are required to sign up.");
+      return;
+    }
+
+    try {
+      const response = await authService.Signup(
+        firstName,
+        lastName,
+        signupEmail,
+        signupPassword
+      );
+
+      setMessage(response.message + " You can now log in.");
+      alert("Signup successful: " + response.message);
+      console.log("Signup successful: ", response);
+
+      // clear fields on successful signup, switch to login tab
+      setFirstName("");
+      setLastName("");
+      setSignupEmail("");
+      setActive("signIn");
+    } catch (error) {
+      setMessage(error);
+      console.error("Signup error: ", error);
+    }
+  };
 
   return (
     <>
@@ -48,7 +116,14 @@ const Login = () => {
               </div>
               <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
                 <img src={Mailwhite} alt="mailwhite" />
-                <input type="text" className="w-full h-full" id="email" />
+                <input
+                  type="email"
+                  className="w-full h-full"
+                  id="login-email"
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                  required
+                />
               </div>
             </div>
             <div className="gap-y-2">
@@ -58,7 +133,14 @@ const Login = () => {
               </div>
               <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
                 <img src={Lockwhite} alt="" />
-                <input type="password" id="pwd" className="w-full" />
+                <input
+                  type="password"
+                  id="Login-pwd"
+                  className="w-full"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  required
+                />
               </div>
             </div>
           </div>
@@ -94,7 +176,12 @@ const Login = () => {
                 <p className="font-semibold text-red-500">*</p>
               </div>
               <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
-                <input type="text" className="w-full" />
+                <input
+                  type="text"
+                  className="w-full"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
               </div>
             </div>
             <div className="gap-y-2">
@@ -103,7 +190,12 @@ const Login = () => {
                 <p className="font-semibold text-red-500">*</p>
               </div>
               <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
-                <input type="text" className="w-full" />
+                <input
+                  type="text"
+                  className="w-full"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
               </div>
             </div>
             <div className="gap-y-2">
@@ -113,7 +205,12 @@ const Login = () => {
               </div>
               <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
                 <img src={Mailwhite} alt="mailwhite" />
-                <input type="text" className="w-full" />
+                <input
+                  type="text"
+                  className="w-full"
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
+                />
               </div>
             </div>
             <div className="gap-y-2">
@@ -123,7 +220,12 @@ const Login = () => {
               </div>
               <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
                 <img src={Lockwhite} alt="" />
-                <input type="password" className="w-full" />
+                <input
+                  type="password"
+                  className="w-full"
+                  value={signupPassword}
+                  onChange={(e) => setSignupPassword(e.target.value)}
+                />
               </div>
             </div>
           </div>
