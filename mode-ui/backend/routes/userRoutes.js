@@ -1,7 +1,5 @@
 import express from 'express';
 import User from '../models/User.js';
-import bcrypt from 'bcryptjs'; // <--- Make sure this import is present
-
 const router = express.Router();
 
 // route post signup
@@ -76,7 +74,7 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ username }); // Find user by username (which is email)
 
         if (!user) {
-            return res.status(401).json({ message: 'Invalid email or password' }); // Changed message to reflect email
+            return res.status(401).json({ message: 'User not found or email does not exist' }); // Changed message to reflect email
         }
 
         // Use the matchPassword method from the User model to compare
@@ -92,7 +90,7 @@ router.post('/login', async (req, res) => {
                 },
             });
         } else {
-            res.status(401).json({ message: 'Invalid email or password' }); // Changed message to reflect email
+            res.status(401).json({ message: 'Invalid email or password!' }); // Changed message to reflect email
         }
     } catch (err) {
         console.error('SERVER ERROR during login:', err);

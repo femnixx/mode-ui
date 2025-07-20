@@ -4,7 +4,7 @@ const API_Url = "http://localhost:5000/api/auth";
 // function to handle login
 const Login = async (email, password) => {
     try {
-        const response = await axios.post(`${API_Url}/login`, {username: email, password});
+        const response = await axios.post(`${API_Url}/login`, { email, password });
         return response.data;
     } catch (error) {
         throw error.response?.data?.message || 'Login failed due to unknown error. Please try again';
