@@ -166,7 +166,7 @@ const Login = () => {
               className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg"
               onClick={handleLoginSubmit}
             >
-              <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+              <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40 hover:cursor-pointer hover:bg-purple-800">
                 Login
               </p>
             </div>
@@ -256,7 +256,7 @@ const Login = () => {
               className="max-sm:block sm:flex w-full sm:justify-center sm:text-lg"
               onClick={handleSignup}
             >
-              <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40">
+              <p className="mt-8 text-center py-3 bg-[#5939DC] text-white font-semibold rounded-lg sm:px-40 hover:cursor-pointer hover:bg-purple-800">
                 Login
               </p>
             </div>
