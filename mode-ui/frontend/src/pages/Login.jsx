@@ -50,6 +50,7 @@ const Login = () => {
 
     if (!firstName || !lastName || !signupEmail || !signupPassword) {
       setMessage("All fields are required to sign up.");
+      window.alert("All fields are required to be filled to sign up.");
       return;
     }
 
@@ -64,6 +65,7 @@ const Login = () => {
       setMessage(response.message + " You can now log in.");
       alert("Signup successful: " + response.message);
       console.log("Signup successful: ", response);
+      window.alert("All fields are required to be filled to sign up.");
 
       // clear fields on successful signup, switch to login tab
       setFirstName("");
