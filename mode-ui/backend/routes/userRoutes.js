@@ -75,6 +75,7 @@ router.post('/login', async (req, res) => {
 
         if (!user) {
             return res.status(401).json({ message: 'User not found or email does not exist' }); // Changed message to reflect email
+            
         }
 
         // Use the matchPassword method from the User model to compare

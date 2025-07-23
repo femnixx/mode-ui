@@ -5,7 +5,7 @@ const API_Url = "http://localhost:5000/api/auth";
 const Login = async (email, password) => {
     try {
         const response = await axios.post(`${API_Url}/login`, { email, password });
-        return response.data;
+        return response.data; 
     } catch (error) {
         throw error.response?.data?.message || 'Login failed due to unknown error. Please try again';
     }
@@ -22,7 +22,7 @@ const Signup = async (firstName, lastName, email, password) => {
         });
         return response.data;
     } catch (error) {
-    throw error.response?.data?.message || "Signup failed due to unexpected error. Please try again";
+    throw error.response?.data?.message || window.alert("Signup failed due to unexpected error. Please try again");
     }
 };
 

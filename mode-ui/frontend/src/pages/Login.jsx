@@ -4,10 +4,19 @@ import Mailwhite from "../assets/mail-white.svg";
 import background from "../assets/backgrouind.svg";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/authServices";
+import User from "../../../backend/models/User";
 
 const Login = () => {
   const [active, setActive] = useState("signIn");
   const [remember, setRemember] = useState(false);
+
+  // state for empty fields
+  const [loginEmailError, setLoginEmailError] = useState("");
+  const [loginPasswordError, setLoginPasswordError] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [signupEmailError, setSignupEmailError] = useState("");
+  const [signupPasswordError, setSignupPasswordError] = useState("");
 
   // state for login form fields
   const [loginEmail, setLoginEmail] = useState("");
@@ -29,17 +38,35 @@ const Login = () => {
     e.preventDefault();
     setMessage("");
 
+    // clear previous field-specific error for long email
+    setLoginEmailError("");
+
+    // frontend vlidation for empty email
+    if (!loginEmail) {
+      setLoginEmailError("* Email is required");
+      return;
+    }
+
+    // only proceed with API call if validation passes
     try {
       const response = await authService.Login(loginEmail, loginPassword);
       setMessage(response.message || "Login successful!");
       alert("Login successful: " + (response.message || "Welcome!"));
       console.log("Login successful: ", response);
+      <Link to="/"></Link>;
 
       setLoginEmail("");
       setLoginPassword("");
     } catch (error) {
       setMessage(error);
       console.error("Login error: ", error);
+      if (!loginEmail || !loginPassword) {
+        window.alert("All fields are required to be filled.");
+      }
+      if (await !User.matchPassword) {
+        window.alert("Wrong password");
+        star;
+      }
     }
   };
 
@@ -313,9 +340,22 @@ const Login = () => {
                             type="text"
                             className="w-full"
                             value={loginEmail}
-                            onChange={(e) => setLoginEmail(e.target.value)}
+                            onChange={(e) => {
+                              setLoginEmail(e.target.value);
+                              // clear error as user types
+                              if (e.target.value) {
+                                setLoginEmailError("");
+                              }
+                            }}
                           />
                         </div>
+                        <p
+                          className={`text-red-500 font-semibold text-sm pt-2 ${
+                            loginEmail === "" ? "block" : "hidden"
+                          }`}
+                        >
+                          * Email required
+                        </p>
                       </div>
                       <div className="gap-y-2">
                         <div className="flex gap-x-1">
@@ -331,6 +371,9 @@ const Login = () => {
                             onChange={(e) => setLoginPassword(e.target.value)}
                           />
                         </div>
+                        <p className="font-semibold text-red-500 text-sm pt-2">
+                          * Password required
+                        </p>
                       </div>
                     </div>
                     <div className="flex justify-between pt-4 items-center text-[#75757E]">
