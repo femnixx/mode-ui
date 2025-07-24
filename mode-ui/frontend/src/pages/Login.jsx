@@ -33,6 +33,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  // code for email required
+
   // handler for login form submission
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -40,12 +42,6 @@ const Login = () => {
 
     // clear previous field-specific error for long email
     setLoginEmailError("");
-
-    // frontend vlidation for empty email
-    if (!loginEmail) {
-      setLoginEmailError("* Email is required");
-      return;
-    }
 
     // only proceed with API call if validation passes
     try {
@@ -63,9 +59,8 @@ const Login = () => {
       if (!loginEmail || !loginPassword) {
         window.alert("All fields are required to be filled.");
       }
-      if (await !User.matchPassword) {
-        window.alert("Wrong password");
-        star;
+      if ((await !User.matchPassword) && loginEmail != "") {
+        window.alert("Email not found or password is incorrect");
       }
     }
   };
@@ -337,30 +332,32 @@ const Login = () => {
                         <div className="flex p-3 gap-x-3 items-center border-1 rounded-lg border-[#E5E7EB] mt-2">
                           <img src={Mailwhite} alt="mailwhite" />
                           <input
-                            type="text"
+                            type="email"
+                            placeholder="example@gmail.com"
                             className="w-full"
                             value={loginEmail}
                             onChange={(e) => {
                               setLoginEmail(e.target.value);
-                              // clear error as user types
-                              if (e.target.value) {
-                                setLoginEmailError("");
-                              }
                             }}
                           />
                         </div>
                         <p
                           className={`text-red-500 font-semibold text-sm pt-2 ${
-                            loginEmail === "" ? "block" : "hidden"
+                            loginEmail === "" ? "flex" : "hidden"
                           }`}
                         >
-                          * Email required
+                          * Email is required
                         </p>
                       </div>
                       <div className="gap-y-2">
                         <div className="flex gap-x-1">
                           <p className="font-semibold">Password</p>
-                          <p className="font-semibold text-red-500">*</p>
+                          <p
+                            className={`font-semibold text-red-500 ${
+                              loginEmail === "" ? "flex" : "hidden"
+                            }`}
+                            required
+                          ></p>
                         </div>
                         <div className="flex items-center p-3 gap-x-3 border-1 border-[#E5E7EB] rounded-lg mt-2">
                           <img src={Lockwhite} alt="" />
@@ -372,7 +369,7 @@ const Login = () => {
                           />
                         </div>
                         <p className="font-semibold text-red-500 text-sm pt-2">
-                          * Password required
+                          * Password
                         </p>
                       </div>
                     </div>
