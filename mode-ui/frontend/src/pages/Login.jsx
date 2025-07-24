@@ -368,8 +368,12 @@ const Login = () => {
                             onChange={(e) => setLoginPassword(e.target.value)}
                           />
                         </div>
-                        <p className="font-semibold text-red-500 text-sm pt-2">
-                          * Password
+                        <p
+                          className={`font-semibold text-red-500 text-sm pt-2 ${
+                            loginPassword === "" ? "block" : "hidden"
+                          }`}
+                        >
+                          * Password is required
                         </p>
                       </div>
                     </div>
